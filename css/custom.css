@@ -1,0 +1,43 @@
+.back{
+	height: 90px;
+	background-color: #fff;
+	margin-bottom: 70px;
+
+}
+.container-fluid{
+	padding: 0px;
+	margin: 0px;
+}
+
+.navbar-toggler {
+    font-size: 2.65rem;
+}
+.navbar-toggler {
+	background: #008080;
+}
+.intro{
+	text-align: center;
+	padding-top: 150px;
+	padding-bottom: 100px;
+	background-color: #008080;
+	color: #fff;
+}
+.cade-meu-prof{
+	padding: 70px 10px 70px 10px;
+	color: #008080;
+}
+.navbar-collapse{
+	padding: 15px;
+}
+.creditos{
+	height: 30px;
+	background-color: #000;
+	color: #fff;
+	text-align: right;
+}
+footer{
+	background-color: #008080;	
+	color: #E6E6FA;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
