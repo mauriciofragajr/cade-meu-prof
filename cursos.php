@@ -67,45 +67,45 @@
 
     </div><!-- /.container -->
 
-
     <div class="container cade-meu-prof">
-      <h2>Escolha seu estado</h2>
+      <h2>Escolha seu curso</h2>
       <select class="form-control" id="caminhos" name="caminhos">
         <option disabled>Selecione...</option> 
 
+    
       <?php
-        
+
+        $faculdade = (int)$_GET["faculdade"];
+
         // Conexão com o banco de dados
         $conn = @mysql_connect("localhost", "root", "") or die("Não foi possível a conexão com o Banco");
         // Selecionando banco
         $db = @mysql_select_db("banco_dados", $conn) or die("Não foi possível selecionar o Banco");
-        
-        
+
         // Lendo como utf8
         mysql_query("SET NAMES 'utf8'");
         mysql_query('SET character_set_connection=utf8');
         mysql_query('SET character_set_client=utf8');
         mysql_query('SET character_set_results=utf8');
 
+        $sql = mysql_query("SELECT * FROM `cursos` WHERE id_faculdade = $faculdade");
 
-        // Verificamos no banco de dados produtos equivalente a palavra digitada
-        $sql = mysql_query("SELECT * FROM `estados` ORDER BY nome asc");
-                
         $numRegistros = mysql_num_rows($sql);
-
         
         while ($numRegistros > 0) {
           $linha = mysql_fetch_assoc($sql);
-          $nome = $linha['nome'];
-          echo '<option value="'.$linha['sigla'].'">'.$nome.'</option>';
+          $nome = $linha['nome_curso'];
+          echo '<option value="'.$linha['id_curso'].'">'.$nome.'</option>';
           $numRegistros = $numRegistros - 1;
         }
+        
      
       ?>
 
       </select>
 
       <button type="button" class="btn btn-secondary btn-block" id="ir" name="ir">Ir</button>
+
 
       
     </div>
@@ -164,7 +164,7 @@
       $( "#ir" ).click(function() {
         var $resultado = $( "#caminhos" ).val();;
           //alert($resultado);
-          window.location.href = "faculdades?estado=" + $("#caminhos").val();;
+          window.location.href = "http://localhost/bootstrap4/materias.php?curso=" + $("#caminhos").val();;
         });
     </script>
     
